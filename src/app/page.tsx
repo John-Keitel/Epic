@@ -1,69 +1,269 @@
 import Image from "next/image";
+import Link from "next/link";
+import {
+  Armchair,
+  CalendarDays,
+  Coffee,
+  HeartHandshake,
+  ShieldCheck,
+  Sparkles,
+  Users,
+} from "lucide-react";
+import { Avatar } from "@/components/avatar";
+import { Confetti } from "@/components/confetti";
+import { Logo } from "@/components/logo";
+import { SiteHeader } from "@/components/site-header";
 
-export default function Home() {
+const SPACES = [
+  {
+    icon: Armchair,
+    name: "The Front Porch",
+    description:
+      "Introduce yourself, share a photo, or tell us how your week is going.",
+    members: ["Jasmine R.", "Marco T.", "Leah M.", "Dee W."],
+    color: "bg-sky",
+    excerpt:
+      "New here! Excited to find a place where people just get it.",
+    excerptAuthor: "Jasmine R.",
+    reactions: [24, 7, 5],
+  },
+  {
+    icon: HeartHandshake,
+    name: "I've Been There",
+    description:
+      "Ask for advice from someone who truly understands.",
+    members: ["Marco T.", "Ana P.", "Chris B.", "Sam K."],
+    color: "bg-coral",
+    excerpt:
+      "How do you set boundaries without the guilt? Having a tough time saying no lately.",
+    excerptAuthor: "Marco T.",
+    reactions: [31, 12, 8],
+  },
+  {
+    icon: Coffee,
+    name: "The Break Room",
+    description: "Pets, playlists, hobbies, humor, and life outside funeral service.",
+    members: ["Leah M.", "Dee W.", "Rob H.", "Nia F."],
+    color: "bg-sun",
+    excerpt: "Sunday vinyl + coffee = reset. What's on your playlist today?",
+    excerptAuthor: "Leah M.",
+    reactions: [18, 6, 3],
+  },
+];
+
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <SiteHeader />
+
+      <main className="flex-1">
+        <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-10 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:pt-14">
+          <div>
+            <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-teal ring-1 ring-line">
+              <Sparkles className="h-3.5 w-3.5" aria-hidden />
+              Free. Independent. For everyone in funeral service.
+            </p>
+            <h1 className="mt-4 font-display text-5xl font-extrabold leading-[0.95] text-ink sm:text-6xl">
+              Welcome to <span className="text-coral">EPIC</span>
+            </h1>
+            <p className="mt-4 max-w-xl font-display text-2xl font-semibold leading-snug text-ink">
+              The funeral community where everyone belongs.
+            </p>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-ink-soft">
+              No membership fees. No sales pitches. No titles required. Just
+              people who understand the work, the life, and one another.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/join" className="btn btn-primary text-base">
+                Come Sit With Us
+              </Link>
+              <Link href="/login" className="btn btn-secondary text-base">
+                See What&apos;s Happening
+              </Link>
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-ink-soft">
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="h-4 w-4 text-teal" aria-hidden />
+                Private to members
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Users className="h-4 w-4 text-teal" aria-hidden />
+                Every role welcome
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <HeartHandshake className="h-4 w-4 text-teal" aria-hidden />
+                No ads, ever
+              </span>
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden rounded-[2rem] bg-ink p-6 shadow-xl">
+            <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-teal/30 blur-2xl" />
+            <div className="absolute -bottom-12 right-0 h-40 w-40 rounded-full bg-coral/30 blur-2xl" />
+            <div className="relative flex flex-col items-center text-center">
+              <Image
+                src="/epic-logo-full.png"
+                alt="EPIC — The Funeral Community Where Everyone Belongs"
+                width={1261}
+                height={1247}
+                className="h-auto w-full max-w-sm"
+                priority
+              />
+              <p className="mt-2 max-w-sm text-sm leading-relaxed text-cream/80">
+                A clubhouse, not a trade show. Pull up a chair and stay a while.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="community" className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 className="flex items-center gap-2 font-display text-3xl font-extrabold text-ink">
+                Come On In <Confetti />
+              </h2>
+              <p className="mt-1 text-ink-soft">
+                A few of the rooms waiting for you inside.
+              </p>
+            </div>
+            <Link href="/join" className="btn btn-secondary btn-sm">
+              Browse all spaces
+            </Link>
+          </div>
+
+          <div className="mt-5 grid gap-5 md:grid-cols-3">
+            {SPACES.map((space) => {
+              const Icon = space.icon;
+              return (
+                <div key={space.name} className="card flex flex-col p-4">
+                  <div className="flex items-start gap-3">
+                    <span
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white ${space.color}`}
+                    >
+                      <Icon className="h-6 w-6" aria-hidden />
+                    </span>
+                    <div>
+                      <h3 className="font-display text-xl font-bold text-ink">
+                        {space.name}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                        {space.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 flex -space-x-2">
+                    {space.members.map((member) => (
+                      <Avatar key={member} name={member} size="sm" />
+                    ))}
+                    <span className="inline-flex h-8 items-center rounded-full bg-cream-deep px-2 text-xs font-bold text-ink-soft ring-2 ring-white">
+                      +{space.members.length * 7}
+                    </span>
+                  </div>
+
+                  <div className="mt-3 rounded-xl border border-line bg-cream/70 p-3">
+                    <div className="flex items-center gap-2">
+                      <Avatar name={space.excerptAuthor} size="sm" />
+                      <span className="text-xs font-bold text-ink">
+                        {space.excerptAuthor}
+                      </span>
+                      <span className="ml-auto text-[11px] font-semibold text-ink-soft/70">
+                        2h
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                      {space.excerpt}
+                    </p>
+                    <div className="mt-2 flex gap-4 text-xs font-bold text-ink-soft">
+                      <span aria-label="Hearts">♥ {space.reactions[0]}</span>
+                      <span aria-label="Replies">◍ {space.reactions[1]}</span>
+                      <span aria-label="Claps">✦ {space.reactions[2]}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section
+          id="gatherings"
+          className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.4fr_1fr]"
+        >
+          <div id="stories" className="card flex flex-col justify-center gap-3 p-6 sm:p-8">
+            <h2 className="font-display text-3xl font-extrabold text-ink">
+              Real people. Real stories. Real support.
+            </h2>
+            <p className="max-w-2xl text-lg leading-relaxed text-ink-soft">
+              EPIC is built for the whole profession — funeral directors,
+              embalmers, arrangers, crematory and removal staff, students, and
+              the people behind the scenes. Your title doesn&apos;t make you more
+              important here. You belong.
+            </p>
+            <div>
+              <Link href="/join" className="btn btn-primary">
+                Join the community
+              </Link>
+            </div>
+          </div>
+
+          <aside className="card p-5">
+            <h2 className="font-display text-xl font-bold text-ink">
+              Happening this week
+            </h2>
+            <ul className="mt-4 space-y-4">
+              <li className="flex gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal/15 text-teal">
+                  <Coffee className="h-5 w-5" aria-hidden />
+                </span>
+                <div>
+                  <p className="font-bold text-ink">Virtual Coffee — Wednesday, 7 PM</p>
+                  <p className="text-sm text-ink-soft">
+                    Grab a mug and join the conversation.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sun/20 text-ink">
+                  <CalendarDays className="h-5 w-5" aria-hidden />
+                </span>
+                <div>
+                  <p className="font-bold text-ink">Friday Joy Check-In</p>
+                  <p className="text-sm text-ink-soft">
+                    Share a win, a smile, or something good from your week.
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <Link href="/guidelines" className="btn btn-secondary btn-sm mt-5 w-full">
+              Read the guidelines
+            </Link>
+          </aside>
+        </section>
       </main>
-    </div>
+
+      <footer className="mt-8 border-t border-line bg-cream-deep/60">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-ink-soft sm:flex-row sm:px-6">
+          <Logo />
+          <p className="max-w-md text-center sm:text-right">
+            The Funeral Community Where Everyone Belongs. Free, independent, and
+            built with care for the people who do this work.
+          </p>
+          <nav className="flex gap-4 font-bold">
+            <Link href="/guidelines" className="hover:text-coral">
+              Guidelines
+            </Link>
+            <Link href="/help" className="hover:text-coral">
+              Help
+            </Link>
+            <Link href="/login" className="hover:text-coral">
+              Sign in
+            </Link>
+          </nav>
+        </div>
+      </footer>
+    </>
   );
 }

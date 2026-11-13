@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# committed template
+!.env.example
+
+# local source material (design briefs / originals, not used by the app)
+/EPIC logo1.png
+/Epic logo2.png
+/Epic website.png
+/EPIC_Community_Website_Overview.docx
+/EPIC_Technical_Development_Roadmap.docx
