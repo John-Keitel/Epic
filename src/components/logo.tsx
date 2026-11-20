@@ -17,8 +17,8 @@ export function Logo({
       <Image
         src="/epic-logo.png"
         alt="EPIC — The Funeral Community Where Everyone Belongs"
-        width={1983}
-        height={793}
+        width={1600}
+        height={557}
         priority
         className="h-10 w-auto sm:h-12"
       />

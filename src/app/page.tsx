@@ -57,63 +57,59 @@ export default function LandingPage() {
       <SiteHeader />
 
       <main className="flex-1">
-        <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-10 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:pt-14">
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-teal ring-1 ring-line">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden />
-              Free. Independent. For everyone in funeral service.
-            </p>
-            <h1 className="mt-4 font-display text-5xl font-extrabold leading-[0.95] text-ink sm:text-6xl">
-              Welcome to <span className="text-coral">EPIC</span>
-            </h1>
-            <p className="mt-4 max-w-xl font-display text-2xl font-semibold leading-snug text-ink">
-              The funeral community where everyone belongs.
-            </p>
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-ink-soft">
-              No membership fees. No sales pitches. No titles required. Just
-              people who understand the work, the life, and one another.
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/join" className="btn btn-primary text-base">
-                Come Sit With Us
-              </Link>
-              <Link href="/login" className="btn btn-secondary text-base">
-                See What&apos;s Happening
-              </Link>
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-ink-soft">
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="h-4 w-4 text-teal" aria-hidden />
-                Private to members
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Users className="h-4 w-4 text-teal" aria-hidden />
-                Every role welcome
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <HeartHandshake className="h-4 w-4 text-teal" aria-hidden />
-                No ads, ever
-              </span>
-            </div>
+        <section className="relative isolate flex min-h-[440px] w-full items-center overflow-hidden bg-cream sm:min-h-[500px] lg:min-h-[560px]">
+          <div className="absolute inset-y-0 right-0 w-full sm:w-[65%]">
+            <Image
+              src="/community-banner.jpg"
+              alt="EPIC community members laughing together around picnic tables at an outdoor gathering"
+              width={2400}
+              height={1340}
+              className="h-full w-full object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 hidden bg-gradient-to-r from-cream via-cream/60 via-30% to-transparent to-45% sm:block" />
           </div>
-
-          <div className="relative overflow-hidden rounded-[2rem] bg-ink p-6 shadow-xl">
-            <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-teal/30 blur-2xl" />
-            <div className="absolute -bottom-12 right-0 h-40 w-40 rounded-full bg-coral/30 blur-2xl" />
-            <div className="relative flex flex-col items-center text-center">
-              <Image
-                src="/epic-logo-full.png"
-                alt="EPIC — The Funeral Community Where Everyone Belongs"
-                width={1261}
-                height={1247}
-                className="h-auto w-full max-w-sm"
-                priority
-              />
-              <p className="mt-2 max-w-sm text-sm leading-relaxed text-cream/80">
-                A clubhouse, not a trade show. Pull up a chair and stay a while.
+          <div className="absolute inset-0 bg-cream/75 sm:hidden" />
+          <div className="relative mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-14">
+            <div className="max-w-xl">
+              <p className="inline-flex max-w-full items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-teal ring-1 ring-line">
+                <Sparkles className="h-3.5 w-3.5" aria-hidden />
+                Free. Independent. For everyone in funeral service.
               </p>
+              <h1 className="mt-4 font-display text-5xl font-extrabold leading-[0.95] text-ink sm:text-6xl lg:text-7xl">
+                Welcome to EPIC
+              </h1>
+              <p className="mt-4 font-display text-2xl font-semibold leading-snug text-ink sm:text-3xl">
+                The Funeral Community Where Everyone Belongs
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-ink-soft">
+                No membership fees. No sales pitches. No titles required. Just
+                people who understand the work, the life, and one another.
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/join" className="btn btn-primary text-base">
+                  Come Sit With Us
+                </Link>
+                <Link href="/login" className="btn btn-secondary text-base">
+                  See What&apos;s Happening
+                </Link>
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-ink-soft">
+                <span className="inline-flex items-center gap-1.5">
+                  <ShieldCheck className="h-4 w-4 text-teal" aria-hidden />
+                  Private to members
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Users className="h-4 w-4 text-teal" aria-hidden />
+                  Every role welcome
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <HeartHandshake className="h-4 w-4 text-teal" aria-hidden />
+                  No ads, ever
+                </span>
+              </div>
             </div>
           </div>
         </section>
